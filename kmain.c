@@ -1,5 +1,6 @@
 #include "print.h"
 #include "regs.h"
+#include "types.h"
 
 void kmain( void* mbd, unsigned int magic )
 {
@@ -22,6 +23,16 @@ void kmain( void* mbd, unsigned int magic )
    print("\n");
    print("CR4: ");
    print_hex(read_cr4());
+   print("\n");
+   
+   print("GDTR Base: ");
+   gdtr_t gdtr;
+   read_gdtr(&gdtr.v);
+   print_hex(gdtr.s.base);
+   print("\n");
+   print("GDTR Limit: ");
+   print_hex(gdtr.s.limit);
+   
    //print_hex(0x12345678);
    //print(boot_loader_name, 16);
  

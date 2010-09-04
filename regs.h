@@ -1,10 +1,16 @@
 #ifndef REGS_H
 #define REGS_H
 
-int read_cr0(void);
+#include "types.h"
 
-void write_cr0(int new_cr3);
+u32 read_cr0(void);
 
-int read_cr4(void);
+void write_cr0(u32 new_cr0);
+
+u32 read_cr4(void);
+
+void write_cr4(u32 new_cr4);
+
+void read_gdtr(u64* gdtr);
 
 #endif
